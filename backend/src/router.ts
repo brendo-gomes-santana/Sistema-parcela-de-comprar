@@ -5,13 +5,13 @@ import Api_key from "./middlewares/Api_Key";
 import { storage } from "./config/multerConfig";
 
 import { createUserController } from "./controllers/Users/createUserController";
-
+import { sessionUserController } from "./controllers/Users/sessionUserController";
 const router = Router()
 
 const uploads = multer({ storage: storage })
 
 router.use(Api_key)
 router.post('/create/user', uploads.single('foto') ,new createUserController().create)
-
+router.post('/session', new sessionUserController().handle)
 
 export { router }
