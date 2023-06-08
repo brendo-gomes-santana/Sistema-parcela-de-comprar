@@ -6,7 +6,7 @@ class CreateComprarController {
     async handle(req: Request, res: Response){
 
         const user_id = req.user_id as string
-        const { titulo, descricao, parcelas, dia_de_vencimento } = req.body
+        const { titulo, descricao, parcelas, dia_de_vencimento, valor } = req.body
 
         const inicializacao = new CreateComprarService()
         const cadastrado = await inicializacao.execute({
@@ -14,6 +14,7 @@ class CreateComprarController {
             descricao,
             dia_de_vencimento,
             parcelas,
+            valor,
             user_id
         })
 

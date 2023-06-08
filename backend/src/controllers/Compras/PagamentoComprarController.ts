@@ -6,7 +6,6 @@ class PagamentoComprarController{
     async handle(req: Request, res: Response){
         const id_pagamento = req.query.id_pagamento as string
 
-
         const inicializacao = new PagamentoComprarService()
         const atualizado = await inicializacao.execute(id_pagamento)
 

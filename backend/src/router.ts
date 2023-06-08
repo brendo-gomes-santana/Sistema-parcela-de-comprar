@@ -10,10 +10,12 @@ import { sessionUserController } from "./controllers/Users/sessionUserController
 import { InforUserController } from "./controllers/Users/InforUserController";
 import { EsqueceuSenhaUserController } from "./controllers/Users/EsqueceuSenhaUserController";
 import { InforCodigoUserController } from "./controllers/Users/InforCodigoUserController";
+import { AtualizandoUserController } from "./controllers/Users/AtualizandoUserController";
 
 import { CreateComprarController } from "./controllers/Compras/CreateComprarController";
 import { PagamentoComprarController } from "./controllers/Compras/PagamentoComprarController";
 import { ListaComprarController } from "./controllers/Compras/ListaComprarController";
+import { RemoveComprarController } from "./controllers/Compras/RemoveComprarController";
 
 const router = Router()
 
@@ -29,11 +31,12 @@ router.get('/infor', new InforCodigoUserController().show)
 
 router.use(Auth)
 router.get('/user', new InforUserController().show)
-
+router.patch('/user/atualizando', uploads.single('foto'), new AtualizandoUserController().atulizando)
 
 //ROTAS DE PAGAMENTOS
 router.post('/create/pagamento', new CreateComprarController().handle)
 router.patch('/pagamento', new PagamentoComprarController().handle)
 router.get('/lista/pagamento', new ListaComprarController().show)
+router.delete('/remove/pagamento', new RemoveComprarController().remove)
 
 export { router }

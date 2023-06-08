@@ -4,6 +4,7 @@ interface ComprarProps {
     descricao:string,
     dia_de_vencimento: string,
     parcelas: number,
+    valor: string,
     user_id: string
 }
 class CreateComprarService {
@@ -11,11 +12,12 @@ class CreateComprarService {
         titulo ,
         descricao,
         dia_de_vencimento,
-        parcelas ,
+        parcelas,
+        valor,
         user_id 
     }:ComprarProps){
 
-        if(!titulo || !dia_de_vencimento || !parcelas || !user_id){
+        if(!titulo || !dia_de_vencimento || !parcelas || !user_id || !valor){
             throw new Error('Não esqueça de preencher algumas informções')
         }
 
@@ -26,6 +28,7 @@ class CreateComprarService {
                 descricao,
                 dia_de_vencimento,
                 parcelas,
+                valor,
                 user_id  
             }
         })

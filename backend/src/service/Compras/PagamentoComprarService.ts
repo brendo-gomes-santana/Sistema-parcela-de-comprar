@@ -6,7 +6,10 @@ class PagamentoComprarService{
         const dados = await prismaClient.pagamento.findFirst({
             where: { id: id_pagamento}
         })
-
+        if(!dados){
+            throw new Error('Não existe esse item')
+        }
+        
         const atualizando = await prismaClient.pagamento.update({
             where: { id: id_pagamento },
             data: {

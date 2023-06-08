@@ -33,6 +33,7 @@ model Pagamento {
   id String @id @default(uuid())
   titulo String 
   descricao String
+  valor String
   dia_de_vencimento String
   parcelas Int
 
