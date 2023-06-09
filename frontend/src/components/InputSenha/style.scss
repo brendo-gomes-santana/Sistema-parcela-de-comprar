@@ -1,0 +1,33 @@
+.ComponentInputPassword {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+ 
+    span{
+        position: absolute;
+        top: 50%;
+        right: 2%;
+        transform: translateY(-50%);
+        cursor: pointer;
+
+        display: flex;
+        align-items: center;
+        svg{
+            font-size: 1.5rem;
+        }
+    }
+
+    input{
+        padding: 0.3rem;
+        width: 100%;
+        height: 6vh;
+        max-width: 400px;
+        outline: none;
+        color: var(--fundo);
+        border:0;
+
+    }
+}
+  
+
+  
