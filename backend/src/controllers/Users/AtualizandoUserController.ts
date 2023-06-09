@@ -12,10 +12,9 @@ class AtualizandoUserController{
         }else{
             const { nome, acesso, senha } = req.body
             const user_id = req.user_id as string
-    
+          
             const { originalname, filename: foto } = req.file
     
-            
             const atualizado = await inicializando.execute({
                 user_id,
                 foto,
