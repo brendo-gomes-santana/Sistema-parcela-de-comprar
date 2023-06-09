@@ -4,10 +4,11 @@ import fs from 'fs';
 
 export const storage = multer.diskStorage({
   destination: (req, file, callback) => {
+
     callback(null, path.resolve('uploads'));
+    
   },
   filename: (req, file, callback) => {
-    const time = new Date().getTime();
     
     const fileExtension = path.extname(file.originalname);
     const fileName = `${req.user_id}${fileExtension}`;
@@ -25,5 +26,3 @@ export const storage = multer.diskStorage({
     callback(null, fileName);
   },
 });
-
-// Restante do seu código
