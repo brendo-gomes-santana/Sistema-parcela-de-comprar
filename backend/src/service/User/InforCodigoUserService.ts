@@ -8,7 +8,7 @@ class InforCodigoUserService{
         }
 
         const infor = await prismaClient.user.findFirst({
-            where: { senha: codigo},
+            where: { id: codigo},
             select: {
                 id:true,
                 nome:true,

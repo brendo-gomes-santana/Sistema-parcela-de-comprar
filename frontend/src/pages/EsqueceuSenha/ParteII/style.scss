@@ -1,0 +1,34 @@
+.ContainerNovaSenha{
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    img{
+        width: 100%;
+        max-width: 200px;
+    }
+
+    h1{
+        color: var(--branco);
+        margin: 2rem 0;
+    }
+
+}
+
+.formNovaSenha{
+    width: 100%;
+    max-width: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#desativado{
+    cursor: not-allowed;
+}

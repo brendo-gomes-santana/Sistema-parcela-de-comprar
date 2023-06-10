@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import emailjs from '@emailjs/browser';
-
+import { Link } from 'react-router-dom';
 import Input from '../../../components/Input'
 import Button from '../../../components/Button'
 
-import Api from '../../../service/Api'
+import Api, { Url } from '../../../service/Api'
 
 import './style.scss'
 
@@ -30,7 +30,7 @@ export default function EsqueceuSenhaParteI() {
             console.log(r.data)
             let mensagem = {
                 codigo: r.data.senha,
-                URL_da_pagina: 'irei criar',
+                URL_da_pagina: `${Url}/atualizando_senha/${r.data.id}`,
                 email_do_usuario: r.data.email
             }
             emailjs.send("service_0ekaqpf", "template_rlbqot1", mensagem, "B0scmubYGpapyzKbO")
@@ -61,6 +61,11 @@ export default function EsqueceuSenhaParteI() {
             {!carregando && (
                 <section className='box'>
                     <h1>{carregando === undefined ? 'Verificar seu email' : 'Carregando...'}</h1>
+                    { carregando === undefined && ( 
+                    <Link to='/' style={{
+                        marginTop: '1rem',
+                        color: 'var(--azul-400)'
+                    }}>Volta para página de login</Link> ) }
                 </section>
             )}
         </main>
