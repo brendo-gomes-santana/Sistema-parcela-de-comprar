@@ -12,14 +12,20 @@ export const storage = multer.diskStorage({
     
     const fileExtension = path.extname(file.originalname);
     const fileName = `${req.user_id}${fileExtension}`;
+    
+
 
     const oldFilePath = path.resolve('uploads', `${req.user_id}${fileExtension}`);
+    const deleta = path.resolve('uploads', `undefined.jpg`);
 
     if (fs.existsSync(oldFilePath)) {
-      fs.unlink(oldFilePath, (err) => {
-        if (err) {
-          console.error('Erro ao excluir a imagem antiga:', err);
-        }
+      fs.unlink(oldFilePath, () => {
+          callback(null, fileName);
+      });
+    }
+    if (fs.existsSync(deleta)) {
+      fs.unlink(deleta, () => {
+        callback(null, fileName);
       });
     }
 

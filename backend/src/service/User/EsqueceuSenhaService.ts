@@ -2,6 +2,7 @@ import prismaClient from "../../prisma";
 import { hash } from "bcryptjs";
 class EsqueceuSenhaService{
     async ParteI(email:string, data_de_nascimento:string){
+
         if(!email || !data_de_nascimento){
             throw new Error('Preenchar os campos')
         }

@@ -28,7 +28,8 @@ export default function Login() {
             <RiLockPasswordLine className='imgLogin'/> 
             <InputSenha placeholder='Digite sua senha'/>
           </label>
-          <Link>Esqueci minha senha</Link>
+          <Link to='/esqueceu_senha'>Esqueci minha senha</Link>
+          <Link to='/cadastro'>Você não possui conta? Crie a agora</Link>
           <Button type='submit' >Entrar</Button>
       </form>
       </section>

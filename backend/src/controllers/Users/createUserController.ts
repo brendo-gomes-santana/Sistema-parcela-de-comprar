@@ -21,6 +21,7 @@ class createUserController {
                 senha,
                 data_de_nascimento
             })
+            
             return res.json(user)
         }
     }

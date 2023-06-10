@@ -25,13 +25,13 @@ router.use(Api_key)
 router.post('/create/user', uploads.single('foto') ,new createUserController().create)
 router.post('/session', new sessionUserController().handle)
 
-router.get('/esqueceu', new EsqueceuSenhaUserController().show)
+router.post('/esqueceu', new EsqueceuSenhaUserController().show)
 router.patch('/esqueceu', new EsqueceuSenhaUserController().trocar)
 router.get('/infor', new InforCodigoUserController().show)
 
 router.use(Auth)
 router.get('/user', new InforUserController().show)
-router.patch('/user/atualizando', uploads.single('foto'), new AtualizandoUserController().atulizando)
+router.patch('/user/atualizando', uploads.single('foto'), new AtualizandoUserController().atulizando, uploads.single('foto'))
 
 //ROTAS DE PAGAMENTOS
 router.post('/create/pagamento', new CreateComprarController().handle)

@@ -11,6 +11,7 @@ class EsqueceuSenhaUserController {
 
         return res.json(navegar)
     }
+    
     async trocar(req: Request, res:Response){
         const { codigo, NovaSenha, Confirmacao } = req.body
         const inicializacao = new EsqueceuSenhaService()

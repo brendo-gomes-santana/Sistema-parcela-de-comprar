@@ -1,0 +1,32 @@
+.ContainerCadastro{
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    img{
+        width: 100%;
+        max-width: 300px;
+    }
+    h1{
+        color: var(--branco);
+        margin: 1rem 0;
+    }
+}
+
+.formCadastro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 500px;
+
+    border: 1px solid var(--azul-400);
+    padding: 1rem 0;
+    border-radius: 5.5rem 0;
+}
