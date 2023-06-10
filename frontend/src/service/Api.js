@@ -7,12 +7,10 @@ const Api = axios.create({
 });
 
 Api.interceptors.request.use((config) => {
-
   config.params = {
     ...config.params,
     api_key: 'Doctorwho10!10'
   };
-
   return config;
 });
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+
 import Button from '../../../components/Button'
 import Input from '../../../components/Input'
 import InputSenha from '../../../components/InputSenha'
@@ -61,8 +62,7 @@ export default function EsqueceuSenhaParteII() {
         })
 
     }
-
-
+    
   return (
     <main className='ContainerNovaSenha' >
         <img src={require('../../../imgs/logo.png')} alt="logo" />
