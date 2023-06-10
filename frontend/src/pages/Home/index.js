@@ -17,7 +17,7 @@ export default function Login() {
 
   const [verificado, setVerificado] = useState(true)
 
-  const { Login } = useContext(AuthContext)
+  const { Login, loagind } = useContext(AuthContext)
   const [acesso, setAcesso] = useState('')
   const [senha, setSenha] = useState('')
 
@@ -77,7 +77,7 @@ export default function Login() {
           </label>
           <Link to='/esqueceu_senha'>Esqueci minha senha</Link>
           <Link to='/cadastro'>Você não possui conta? Crie a agora</Link>
-          <Button type='submit' >Entrar</Button>
+          <Button type='submit' disabled={loagind}>{loagind ? 'Carregando...' : 'Entrar'}</Button>
       </form>
       </section>
     </main>

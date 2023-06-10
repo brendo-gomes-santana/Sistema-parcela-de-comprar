@@ -1,0 +1,86 @@
+.ContainerLogado{
+    padding-top: 2rem;
+    padding: 2rem 2rem 2rem 14rem;
+    
+}
+
+.ContainerPainel{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.BoxLista{
+    width: 100%;
+    background-color: var(--azul-200);
+    height: 5vh;
+
+    display: flex;
+    margin: 1rem 0;
+}
+
+.AbrirModal{
+    width: 100%;
+    max-width: 500px;
+    background: transparent;
+    border:0;
+
+    text-align: left;
+    padding: 0 1rem;
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--fundo)
+
+}
+
+.fechaModel{
+    position: absolute;
+    right: 1%;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    .iconFechamodel{
+        font-size: 2rem;
+    }
+}
+
+.basedoModel{
+
+    textarea{
+        width: 100%;
+        height: 15vh;
+        resize: none;
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+
+    }
+    p{
+        margin-bottom: 1rem;
+        input{
+            height: 5vh;
+            padding: 0 0.5rem;
+        }
+    }
+
+
+}
+
+.basebuttonDeAcao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .buttonDeAcao{
+        text-align: center;
+        width: 40%;
+        margin: 0 1rem;
+        height: 2rem;
+        cursor: pointer;
+
+        border: 0;
+        color: var(--branco);
+        font-weight: bold;
+    }
+}
