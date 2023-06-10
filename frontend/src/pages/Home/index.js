@@ -1,6 +1,7 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
+
 import { AuthContext } from '../../contexts/Auth'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { RiLockPasswordLine , RiUser3Line } from 'react-icons/ri'
 
@@ -11,9 +12,25 @@ import Button from '../../components/Button'
 import './style.scss'
 
 export default function Login() {
+
+  const navigate = useNavigate()
+
+  const [verificado, setVerificado] = useState(true)
+
   const { Login } = useContext(AuthContext)
   const [acesso, setAcesso] = useState('')
   const [senha, setSenha] = useState('')
+
+  useEffect(()=> {
+    (async () => {
+      const taLogado = JSON.parse(localStorage.getItem("@user"))
+      if(taLogado){
+        navigate('/painel')
+        setVerificado(false)
+      }
+      setVerificado(false)
+    })()
+  },[navigate])
 
   async function handleLogin(e){
     e.preventDefault()
@@ -22,10 +39,25 @@ export default function Login() {
       alert('Preenchar todos os campos')
       return;
     }
-
     await Login(acesso, senha)
-    
   }
+
+  if(verificado){
+    return(
+      <div style={{
+          position: 'fixed', 
+          width: '100%',
+          height: '100%',
+
+          display: 'flex',
+          alignContent: 'center',
+          justifyContent: 'center',
+       }}>
+         <span style={{color: 'var(--branco)'}}>Carregando...</span>
+      </div>
+    )
+  }
+
   return (
     <main className='ContainerLogin'>
       <section className='BaseLogin'>

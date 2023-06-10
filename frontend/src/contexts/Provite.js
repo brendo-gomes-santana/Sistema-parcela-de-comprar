@@ -19,6 +19,7 @@ export default function Provite({children}) {
             setVerificado(false)
         })()
     }, [setUser])
+    
     if(verificado){
         return(
             <div style={{

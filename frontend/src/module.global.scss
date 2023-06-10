@@ -15,6 +15,7 @@ body {
     --fundo: #05040e;
     --azul-800: #100C33;
     --azul-400: #372C99;
+    --azul-200: #655cb7;
     --branco: #fff;
 }
 
@@ -24,5 +25,5 @@ input{
 
 a{
     text-decoration: none;
-    color: var(--azul-400)
+    color: var(--azul-200)
 }
