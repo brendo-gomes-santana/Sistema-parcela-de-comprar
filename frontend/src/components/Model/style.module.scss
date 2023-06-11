@@ -11,20 +11,21 @@
     height: 100%;
 
     background-color: var(--fundo-transparente);
-    z-index: 1000;
     
     display: flex;
     align-items: center;
     justify-content: center;
-
+    cursor: pointer;
+    backdrop-filter: blur(15px);
 }
 
 .box{
     width: 100%;
     max-width: 720px;
     padding: 0.5rem;
-    height: 48vh;
+    height: 50vh;
     background-color: var(--branco);
     position: relative;
     border-radius: 1rem;
+    z-index: 1000;
 }

@@ -71,15 +71,15 @@ export default function Painel() {
                     <textarea  disabled={true} value={p.descricao}/>
 
                     <p>
-                    Valor: <input type="text" disabled={true} value={p.valor}/>
+                    Valor: <input type="text" disabled={true} value={'R$ ' + p.valor}/>
                     </p>
                     <p>
-                    Dia de vencimento: <input type="text" disabled={true} value={p.data_de_vencimento}/>
+                    Dia de vencimento: <input type="text" disabled={true} value={p.parcelas === 1 ? `Dia ${p.dia_de_vencimento} é a último parcela.` : 'todo dia ' + p.dia_de_vencimento}/>
                     </p>
                     <p>
                       {p.parcelas === 1 ? 'Parcela restante:' : 'Pacelas restantes: '}
                       <input type="text" disabled={true} 
-                      value={p.parcelas === 1 ? `${p.parcelas} Parcela` : `${p.parcelas} parcelas`}/>
+                      value={p.parcelas === 1 ? `Última parcela` : `${p.parcelas} parcelas`}/>
                     </p>
                     <div className='basebuttonDeAcao'>
 
@@ -89,7 +89,6 @@ export default function Painel() {
                       <button className='buttonDeAcao' style={{backgroundColor: '#2b782b'}}
                       onClick={ () => PagarParcela(p.id)}>Pagar parcela</button> 
                     </div>
-                     
                 </div>
               </Model>
               </>
