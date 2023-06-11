@@ -18,7 +18,6 @@ export default function Auth({children}) {
             senha
         })
         .then((r)=> {
-            console.log(r.data)
             setUser(r.data)
             Api.defaults.authorization = `Bearer ${r.data.token}`
             localStorage.setItem("@user", JSON.stringify(r.data))
