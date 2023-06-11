@@ -5,8 +5,10 @@ import Header from '../../components/Header'
 
 import Button from '../../components/Button'
 
-export default function NovoPagamento() {
+import Api from '../../service/Api'
 
+export default function NovoPagamento() {
+    const [loading, setLoading] = useState(false)
     const [titulo, setTitulo] = useState('')
     const [descricao, setDescricao] = useState('')
     const [diaDeVencimento, setDiaDeVencimento] = useState('')
@@ -35,6 +37,30 @@ export default function NovoPagamento() {
             alert('Preenchar os campos')
             return;
         }
+        setLoading(true)
+        await Api.post('/create/pagamento', {
+            titulo,
+            descricao,
+            dia_de_vencimento: diaDeVencimento,
+            valor,
+            parcelas: Number(parcelas)
+        })
+        .then(()=> {
+            setTitulo('')
+            setDescricao('')
+            setDiaDeVencimento('')
+            setValor('')
+            setParcelas(null)
+            alert('Criado com sucesso')
+            setLoading(false)
+
+        })
+        .catch((err)=> {
+            console.log(`Algo deu errado:`)
+            console.log(err)
+            setLoading(false)
+        })
+
       }
   return (
     <>
@@ -53,8 +79,8 @@ export default function NovoPagamento() {
                                     onChange={ v => setDescricao(v.target.value)} placeholder='Não é obrigatório escrever aqui'/>    
                     </label>
                     <label>
-                        Dia de vencimento: <input type="date" className={Style.input} value={diaDeVencimento}
-                                            onChange={ v => setDiaDeVencimento(v.target.value) }/>
+                        Dia de vencimento: <input type="text" className={Style.input} value={diaDeVencimento}
+                                            onChange={ v => setDiaDeVencimento(v.target.value) } placeholder='Colocar somente o dia'/>
                     </label>
                     <label>
                        Valor: <input type="text" value={'R$ ' + valor} onChange={formatarMoeda} className={Style.input}/>
@@ -63,7 +89,7 @@ export default function NovoPagamento() {
                         Parcelas: <input type="number" className={Style.input} value={parcelas}
                                     onChange={ v => setParcelas(v.target.value) }/>
                     </label>
-                    <Button type='submit'>Cadastrar</Button>
+                    <Button type='submit' disabled={loading}> {loading? 'Carregando ...' : 'Cadastrar'}</Button>
                 </form>
             </section>
         </main>

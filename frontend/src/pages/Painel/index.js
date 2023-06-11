@@ -7,6 +7,8 @@ import Api from '../../service/Api'
 
 import './style.scss'
 
+import { MdPayments, MdDeleteOutline } from 'react-icons/md' // pagar | deletar
+
 export default function Painel() {
   const [abrirModel, setAbrilModel] = useState(false)
   const [listaDePagamento, setListaDePagamento] = useState([])
@@ -60,10 +62,10 @@ export default function Painel() {
             return(
               <>
               <article className='BoxLista' key={p.id}>
-                <button className='AbrirModal' onClick={ () => setAbrilModel(true)}>{p.titulo}</button>
+                <button className='AbrirModal' onClick={ () => setAbrilModel(p.id)}>{p.titulo}</button>
               </article>
 
-              <Model isOpen={abrirModel}>
+              <Model isOpen={abrirModel} id={p.id}>
                 <button onClick={ () => setAbrilModel(false)} className='fechaModel'><AiOutlineCloseCircle className='iconFechamodel'/></button>
                 <div className='basedoModel'>
                     <h2>{p.titulo}</h2>
@@ -83,11 +85,11 @@ export default function Painel() {
                     </p>
                     <div className='basebuttonDeAcao'>
 
-                      <button className='buttonDeAcao' style={{backgroundColor: '#793838'}}
-                      onClick={ () => RemovePagamento(p.id)}>Remove</button>
+                      <button className='buttonDeAcao vermelho'
+                      onClick={ () => RemovePagamento(p.id)}><MdDeleteOutline className='iconBotaoAcao'/> Remove</button>
 
-                      <button className='buttonDeAcao' style={{backgroundColor: '#2b782b'}}
-                      onClick={ () => PagarParcela(p.id)}>Pagar parcela</button> 
+                      <button className='buttonDeAcao verde'
+                      onClick={ () => PagarParcela(p.id)}> <MdPayments className='iconBotaoAcao'/> Pagar parcela</button> 
                     </div>
                 </div>
               </Model>
