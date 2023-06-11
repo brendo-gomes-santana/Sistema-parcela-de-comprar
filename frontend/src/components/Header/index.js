@@ -16,7 +16,7 @@ export default function Header() {
         </Link>
         <nav className='navHeader'>
             <Link to='/painel'>Home</Link>
-            <Link>Criar um pagamento</Link>
+            <Link to='/cadastra/pagamento'>Criar um pagamento</Link>
             <Link> Configuração </Link>
             <button onClick={ () => deslogar()} >Sair</button>
         </nav>

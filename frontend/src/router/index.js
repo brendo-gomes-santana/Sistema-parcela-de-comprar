@@ -2,13 +2,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import Auth from '../contexts/Auth'
 import Provite from '../contexts/Provite'
+
 import Login from '../pages/Home'
 import Cadastro from '../pages/Cadastrar'
 import EsqueceuSenhaParteI from '../pages/EsqueceuSenha/ParteI'
 import EsqueceuSenhaParteII from '../pages/EsqueceuSenha/ParteII'
 
 import Painel from '../pages/Painel'
-
+import NovoPagamento from '../pages/NovoPagamento'
 export default function RouterApp() {
   return (
     <Router>
@@ -20,6 +21,7 @@ export default function RouterApp() {
             <Route path='/atualizando_senha/:codigo' element={ <EsqueceuSenhaParteII/> } />
 
             <Route path='/painel' element={ <Provite> <Painel/> </Provite>  } />
+            <Route path='/cadastra/pagamento' element={ <Provite> <NovoPagamento/> </Provite> }/>
 
         </Routes>
       </Auth>
