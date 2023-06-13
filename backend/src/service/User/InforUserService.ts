@@ -7,15 +7,7 @@ class InforUserService {
         }
 
         const dados = await prismaClient.user.findFirst({
-            where: { id: user_id },
-            select: {
-                id: true,
-                nome: true,
-                email: true,
-                acesso: true,
-                foto: true,
-                data_de_nascimento: true
-            }
+            where: { id: user_id }
         })
 
         return dados

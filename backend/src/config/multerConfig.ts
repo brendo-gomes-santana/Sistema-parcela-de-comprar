@@ -16,7 +16,7 @@ export const storage = multer.diskStorage({
 
 
     const oldFilePath = path.resolve('uploads', `${req.user_id}${fileExtension}`);
-    const deleta = path.resolve('uploads', `undefined.jpg`);
+    const deleta = path.resolve('uploads', `undefined.jpeg`);
 
     if (fs.existsSync(oldFilePath)) {
       fs.unlink(oldFilePath, () => {

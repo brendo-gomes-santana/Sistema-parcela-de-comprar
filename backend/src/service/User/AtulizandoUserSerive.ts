@@ -1,6 +1,6 @@
 import prismaClient from "../../prisma";
 
-
+import { hash } from "bcryptjs";
 
 interface AtulizarInforUserProps { 
     user_id: string,
@@ -30,7 +30,7 @@ class AtualizandoUserService{
                 foto,
                 nome,
                 acesso,
-                senha
+                senha: senha && await hash(senha,10)
             }
         })
 
