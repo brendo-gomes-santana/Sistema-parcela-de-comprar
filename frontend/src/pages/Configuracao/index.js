@@ -9,10 +9,7 @@ import Model from '../../components/Model'
 
 import Api, { UrlFoto } from '../../service/Api'
 
-import user from '../../imgs/user.jpg'
-
 import { FiUpload } from 'react-icons/fi';
-import { Conversor } from '../../service/ConversorDeIMG'
 
 export default function Configuracao() {
 
@@ -35,18 +32,17 @@ export default function Configuracao() {
   },[])
 
   async function handleFile(e){
+
       if(!e.target.files){
         return;
       }
-      console.log(e.target.files)
-      
+
       const image = e.target.files[0];
 
       if(!image){
         return;
       }
-
-      if(image.type === 'image/jpeg' || image.type === 'image/png' || image.type === 'image/jpg'){
+      if(image.type === 'image/png' || image.type=== 'image/jpeg' || image.type === 'image/jpg'){
         setImagemAvatar(image)
         setAvatarUrl(URL.createObjectURL(e.target.files[0]))
       }
@@ -55,12 +51,11 @@ export default function Configuracao() {
   async function handleAtualizarInfor(e){
     e.preventDefault()
 
-    const foto = await Conversor(user);
-
     const data = new FormData()
 
-    data.append('foto',  imagemAvatar !== null ? imagemAvatar : foto);
-
+    if(imagemAvatar !== null || imagemAvatar !== undefined){
+      data.append('foto',  imagemAvatar); 
+    }
     
     if (nome.trim() !== '') {
       data.append('nome', nome );
@@ -123,7 +118,7 @@ export default function Configuracao() {
                         <FiUpload size={30} color='#fff'/>
                         Alterar foto de perfil
                       </span>
-                      <input type="file" accept='image/jpg, image/jpeg' onChange={handleFile}/>
+                      <input type="file" accept='image/jpeg' onChange={handleFile}/>
                         {avatarurl && (<img src={ avatarurl } alt='Foto' className={styles.preview}/> )}
                     </label>
                     <Input placeholder={i.nome} value={ nome } onChange={ (v) =>  setNome(v.target.value)}/>

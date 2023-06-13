@@ -27,7 +27,7 @@ class AtualizandoUserService{
         const atualizado = await prismaClient.user.update({
             where: { id: user_id },
             data: {
-                foto,
+                foto: foto? foto : undefined,
                 nome,
                 acesso,
                 senha: senha && await hash(senha,10)
