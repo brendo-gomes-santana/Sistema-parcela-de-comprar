@@ -31,7 +31,7 @@ export default function Header() {
         <nav className='navHeader'>
             <Link to='/painel'> <AiOutlineHome className='logoNav' onClick={showNavbar}/> Home</Link>
             <Link to='/cadastra/pagamento'><AiOutlineFileAdd className='logoNav' onClick={showNavbar}/> Criar pagamento</Link>
-            <Link> <IoSettingsOutline className='logoNav' onClick={showNavbar}/> Configuração </Link>
+            <Link to='/configuracao'> <IoSettingsOutline className='logoNav' onClick={showNavbar}/> Configuração </Link>
             <button onClick={ () => deslogar()} > <MdOutlineLogout className='logoNav' onClick={showNavbar}/>Sair</button>
         </nav>
     </header>

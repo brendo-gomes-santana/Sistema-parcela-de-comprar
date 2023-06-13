@@ -76,7 +76,7 @@ export default function Login() {
             <InputSenha placeholder='Digite sua senha' value={senha} onChange={ v => setSenha(v.target.value)}/>
           </label>
           <Link to='/esqueceu_senha'>Esqueci minha senha</Link>
-          <Link to='/cadastro'>Você não possui conta? Crie a agora</Link>
+          <Link to='/cadastro'>Você não possuí controle? Crie sua conta</Link>
           <Button type='submit' disabled={loagind}>{loagind ? 'Carregando...' : 'Entrar'}</Button>
       </form>
       </section>
