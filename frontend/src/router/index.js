@@ -12,8 +12,6 @@ import Painel from '../pages/Painel'
 import NovoPagamento from '../pages/NovoPagamento'
 import Configuracao from '../pages/Configuracao'
 
-import Footer from '../components/Footer'
-
 export default function RouterApp() {
   return (
     <Router>
@@ -28,7 +26,6 @@ export default function RouterApp() {
             <Route path='/cadastra/pagamento' element={ <Provite> <NovoPagamento/> </Provite> }/>
             <Route path='/configuracao' element={ <Provite> <Configuracao/> </Provite> } />
         </Routes>
-            <Footer/>
       </Auth>
     </Router>
   )

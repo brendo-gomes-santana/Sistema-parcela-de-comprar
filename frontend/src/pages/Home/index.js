@@ -8,6 +8,7 @@ import { RiLockPasswordLine , RiUser3Line } from 'react-icons/ri'
 import InputSenha from '../../components/InputSenha'
 import Input from '../../components/Input'
 import Button from '../../components/Button'
+import Footer from '../../components/Footer'
 
 import './style.scss'
 
@@ -59,6 +60,7 @@ export default function Login() {
   }
 
   return (
+    <>
     <main className='ContainerLogin'>
       <section className='BaseLogin'>
         <article className='baseDeImgLogin'>
@@ -81,5 +83,7 @@ export default function Login() {
       </form>
       </section>
     </main>
+    <Footer/>
+    </>
   )
 }

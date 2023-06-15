@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
 import Style from './style.module.scss'
-import Header from '../../components/Header'
 
+import Header from '../../components/Header'
 import Button from '../../components/Button'
 
 import Api from '../../service/Api'

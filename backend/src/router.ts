@@ -11,6 +11,7 @@ import { InforUserController } from "./controllers/Users/InforUserController";
 import { EsqueceuSenhaUserController } from "./controllers/Users/EsqueceuSenhaUserController";
 import { InforCodigoUserController } from "./controllers/Users/InforCodigoUserController";
 import { AtualizandoUserController } from "./controllers/Users/AtualizandoUserController";
+import { RemoveUserController } from "./controllers/Users/RemoveUserController";
 
 import { CreateComprarController } from "./controllers/Compras/CreateComprarController";
 import { PagamentoComprarController } from "./controllers/Compras/PagamentoComprarController";
@@ -31,7 +32,8 @@ router.get('/infor', new InforCodigoUserController().show)
 
 router.use(Auth)
 router.get('/user', new InforUserController().show)
-router.patch('/user/atualizando', uploads.single('foto'), new AtualizandoUserController().atulizando, uploads.single('foto'))
+router.patch('/user/atualizando', uploads.single('foto'), new AtualizandoUserController().atulizando)
+router.delete('/user/remove', new RemoveUserController().remove)
 
 //ROTAS DE PAGAMENTOS
 router.post('/create/pagamento', new CreateComprarController().handle)

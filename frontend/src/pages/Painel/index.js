@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { AiOutlineCloseCircle } from 'react-icons/ai'
+
 import Header from '../../components/Header'
 import Model from '../../components/Model'
 

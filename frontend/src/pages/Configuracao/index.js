@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import Header from '../../components/Header'
-import styles from './style.module.scss'
+import { useNavigate } from 'react-router-dom'
 
+import { FiUpload } from 'react-icons/fi';
+
+import Header from '../../components/Header'
 import Button from '../../components/Button'
 import Input from '../../components/Input'
 import InputSenha from '../../components/InputSenha'
 import Model from '../../components/Model'
 
+
 import Api, { UrlFoto } from '../../service/Api'
 
-import { FiUpload } from 'react-icons/fi';
+import styles from './style.module.scss'
 
 export default function Configuracao() {
+
+  const navigate = useNavigate()
 
   const [infor, setInfor] = useState([])
   const [querMesmoApagar, setQuerMesmoApagar] = useState(null)
@@ -82,6 +87,15 @@ export default function Configuracao() {
     })
   }
 
+  async function handleExcluirConta(){
+    await Api.delete('/user/remove')
+    .then(()=> {
+      localStorage.clear()
+      navigate('/')
+    }).catch((err)=> {
+      console.log(err)
+    })
+  }
   return (
     <>
     <Header />
@@ -102,7 +116,7 @@ export default function Configuracao() {
                     <div className={styles.containerExluirConta}>
                       <h3>Você quer mesmo apagar sua conta?</h3>
                       <div>
-                        <Button id={styles.confimar}>Apagar Conta</Button>   
+                        <Button id={styles.confimar} onClick={handleExcluirConta}>Apagar Conta</Button>   
                         <Button onClick={ () => setQuerMesmoApagar(null)} id={styles.excluir}>Cancelar</Button>
                       </div>
                     </div>
@@ -121,12 +135,12 @@ export default function Configuracao() {
                       <input type="file" accept='image/jpeg' onChange={handleFile}/>
                         {avatarurl && (<img src={ avatarurl } alt='Foto' className={styles.preview}/> )}
                     </label>
-                    <Input placeholder={i.nome} value={ nome } onChange={ (v) =>  setNome(v.target.value)}/>
-                    <Input placeholder={i.acesso} value={ acesso } onChange={ (v) =>  setAcesso(v.target.value)}/>
+                    <Input placeholder={i.nome} value={ nome } onChange={ (v) =>  setNome(v.target.value)}/> <br /> 
+                    <Input placeholder={i.acesso} value={ acesso } onChange={ (v) =>  setAcesso(v.target.value)}/> <br />
                     <InputSenha placeholder='Alterer sua senha' value={ senha } onChange={ (v) =>  setSenha(v.target.value)}/>
                     <Button type='submit'>Atualizar Informações</Button>
                   </form>
-                </section>  
+                </section> 
               </>
             )
           })}
