@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const Url = 'http://localhost:3000'
+export const Url = 'https://controle-de-parcelas.netlify.app'
 export const UrlFoto = 'https://api-parcela-de-comprar.onrender.com/foto/'
 
 const Api = axios.create({
