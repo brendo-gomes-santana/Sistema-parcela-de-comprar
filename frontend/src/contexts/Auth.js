@@ -23,8 +23,6 @@ export default function Auth({children}) {
             localStorage.setItem("@user", JSON.stringify(r.data))
             navigate('/painel')
             setLoading(false)
-            
-
         })
         .catch((err)=> {
             alert(err.response.data.error)

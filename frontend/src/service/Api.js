@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 export const Url = 'http://localhost:3000'
-export const UrlFoto = 'http://localhost:3333/foto/'
+export const UrlFoto = 'https://api-parcela-de-comprar.onrender.com/foto/'
 
 const Api = axios.create({
-  baseURL: 'http://localhost:3333'
+  baseURL: 'https://api-parcela-de-comprar.onrender.com'
 });
 
 Api.interceptors.request.use((config) => {
