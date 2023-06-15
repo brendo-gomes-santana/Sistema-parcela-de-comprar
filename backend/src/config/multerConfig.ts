@@ -1,6 +1,5 @@
 import multer from 'multer';
 import path from 'path';
-import fs from 'fs';
 
 export const storage = multer.diskStorage({
   destination: (req, file, callback) => {
@@ -14,5 +13,7 @@ export const storage = multer.diskStorage({
     const fileName = `${req.user_id}${fileExtension}`;
     
     callback(null, fileName);
+
+
   },
 });
