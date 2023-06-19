@@ -1,12 +1,10 @@
 import axios from 'axios';
 
-//https://api-parcela-de-comprar.onrender.com
-
 export const Url = 'https://controle-de-parcelas.netlify.app'
-export const UrlFoto = 'https://api-parcela-de-comprar.onrender.com/foto/'
+export const UrlFoto = 'https://api-parcela-de-comprar-pqvs.onrender.com/foto/'
 
 const Api = axios.create({
-  baseURL: 'https://api-parcela-de-comprar.onrender.com'
+  baseURL: 'https://api-parcela-de-comprar-pqvs.onrender.com'
 });
 
 Api.interceptors.request.use((config) => {
