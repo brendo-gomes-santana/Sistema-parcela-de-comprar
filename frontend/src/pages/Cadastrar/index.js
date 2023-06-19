@@ -9,10 +9,6 @@ import InputSenha from '../../components/InputSenha';
 
 import './style.scss'
 
-import fotouser from '../../imgs/user.jpg'
-
-import { Conversor } from '../../service/ConversorDeIMG';
-
 export default function Cadastro() {
 
     const navigate = useNavigate()
@@ -23,6 +19,7 @@ export default function Cadastro() {
     const [senha, setSenha] = useState('')
     const [data, setData] = useState('')
 
+    const [loading, setLoading] = useState(false)
     async function handleCadastro(e) {
         e.preventDefault();
 
@@ -30,29 +27,23 @@ export default function Cadastro() {
             alert('Preencha todas as informações');
             return;
         }
-
-        const foto = await Conversor(fotouser);
-
-        const formData = new FormData();
-
-        formData.append('foto', foto);
-        formData.append('nome', nome);
-        formData.append('email', email);
-        formData.append('acesso', acesso);
-        formData.append('senha', senha);
-        formData.append('data_de_nascimento', data);
-
-        await api.post('/create/user', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
+        setLoading(true)
+        await api.post('/create/user', {
+            nome,
+            email,
+            acesso,
+            senha,
+            data_de_nascimento: data
         })
         .then(() => {
             navigate('/');
+            setLoading(false)
         })
         .catch((error) => {
             console.error(error);
             alert('Erro ao cadastrar usuário');
+            setLoading(false)
+
         });
     }
   return (
@@ -76,8 +67,7 @@ export default function Cadastro() {
             value={data} onChange={ v => setData(v.target.value) }/>
             
             <Link to='/'>Você já possui conta? Faça login agora</Link>
-
-            <Button type='submit'>Cadastrar</Button>
+            <Button type='submit' disabled={loading}>{loading ? 'Carregando...' : 'Cadastrar'}</Button>
         </form>
     </main>
   )

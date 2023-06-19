@@ -13,7 +13,7 @@ datasource db {
 model User {
   id String @id @default(uuid())
   
-  foto String
+  foto String?
 
   nome String
   email String

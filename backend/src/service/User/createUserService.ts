@@ -2,8 +2,6 @@ import prismaClient from "../../prisma";
 import { hash } from 'bcryptjs'
 
 interface CreateUserProps{
-    foto: string,
-    
     nome: string,
     data_de_nascimento: string,
     
@@ -15,7 +13,6 @@ interface CreateUserProps{
 
 class createUserService{
     async execute({
-        foto,
         nome,
         data_de_nascimento,
         email,
@@ -24,7 +21,7 @@ class createUserService{
     }: CreateUserProps){
 
 
-        if(!foto || !nome || !data_de_nascimento || !email
+        if(!nome || !data_de_nascimento || !email
             || !acesso || !senha){
                 throw new Error('Preenchar todas as informações')
             }
@@ -39,7 +36,6 @@ class createUserService{
 
         const create = await prismaClient.user.create({
             data: {
-                foto,
                 nome,
                 data_de_nascimento,
                 email,

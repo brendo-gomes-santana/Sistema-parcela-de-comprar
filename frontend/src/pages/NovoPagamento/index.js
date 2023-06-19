@@ -50,7 +50,7 @@ export default function NovoPagamento() {
             setDescricao('')
             setDiaDeVencimento('')
             setValor('')
-            setParcelas(null)
+            setParcelas('')
             alert('Criado com sucesso')
             setLoading(false)
 

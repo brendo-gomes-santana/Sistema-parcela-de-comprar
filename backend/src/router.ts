@@ -23,7 +23,7 @@ const router = Router()
 const uploads = multer({ storage: storage })
 
 router.use(Api_key)
-router.post('/create/user', uploads.single('foto') ,new createUserController().create)
+router.post('/create/user', new createUserController().create)
 router.post('/session', new sessionUserController().handle)
 
 router.post('/esqueceu', new EsqueceuSenhaUserController().show)

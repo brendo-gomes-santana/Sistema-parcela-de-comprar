@@ -9,6 +9,7 @@ import Input from '../../components/Input'
 import InputSenha from '../../components/InputSenha'
 import Model from '../../components/Model'
 
+import Foto from '../../imgs/user.jpg';
 
 import Api, { UrlFoto } from '../../service/Api'
 
@@ -28,6 +29,8 @@ export default function Configuracao() {
   const [nome, setNome] = useState('')
   const [acesso, setAcesso] = useState('')
   const [senha, setSenha] = useState('')
+
+  const [loading, setLoading] = useState(false)
 
   useEffect(()=> {
     (async () => {
@@ -61,7 +64,7 @@ export default function Configuracao() {
     if(imagemAvatar !== null || imagemAvatar !== undefined){
       data.append('foto',  imagemAvatar); 
     }
-    
+    setLoading(true)
     if (nome.trim() !== '') {
       data.append('nome', nome );
     }
@@ -81,9 +84,13 @@ export default function Configuracao() {
       setSenha('')
       setAvatarUrl('')
       setImagemAvatar(null)
+      setLoading(false)
+
 
     }).catch((err)=> {
       console.log(err.response.data)
+      setLoading(false)
+
     })
   }
 
@@ -106,7 +113,11 @@ export default function Configuracao() {
             return(
               <>
                 <section className={styles.informacao} key={i.id}>
-                  <img src={`${UrlFoto}${i.foto}`} alt='logoUser' />
+                  {i.foto ? (
+                    <img src={`${UrlFoto}${i.foto}`} alt='logoUser' />
+                  ): (
+                    <img src={Foto} alt='logoUser' />  
+                  )}
                   <h2>{i.nome}</h2>
                   <p><strong>Email de recuperação: </strong>{i.email}</p>
                   <p><strong>Acesso: </strong>{i.acesso}</p>
@@ -138,7 +149,7 @@ export default function Configuracao() {
                     <Input placeholder={i.nome} value={ nome } onChange={ (v) =>  setNome(v.target.value)}/> <br /> 
                     <Input placeholder={i.acesso} value={ acesso } onChange={ (v) =>  setAcesso(v.target.value)}/> <br />
                     <InputSenha placeholder='Alterer sua senha' value={ senha } onChange={ (v) =>  setSenha(v.target.value)}/>
-                    <Button type='submit'>Atualizar Informações</Button>
+                    <Button type='submit' disabled={loading}>{loading? 'Carregando...' : 'Atualizar Informações'}</Button>
                   </form>
                 </section> 
               </>
