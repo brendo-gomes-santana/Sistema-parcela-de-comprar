@@ -21,3 +21,38 @@
     }
 
 }
+
+@media screen and (max-width: 1280px) {
+    .containerSlides{
+        width: 100%;
+        height: 40vh;
+    }
+    .box{
+        flex-direction: column;
+        img{
+            max-width: 100%;
+        }
+        h2{
+            max-width: 100%;
+            font-size: 20px;
+            margin-top: 0.5rem;
+        }
+    }
+}
+@media screen and (max-width: 720px) {
+    .containerSlides{
+        width: 100%;
+        height: 40vh;
+    }
+    .box{
+        flex-direction: column;
+        img{
+            max-width: 100%;
+        }
+        h2{
+            max-width: 100%;
+            font-size: 20px;
+            margin-top: 0.5rem;
+        }
+    }
+}
