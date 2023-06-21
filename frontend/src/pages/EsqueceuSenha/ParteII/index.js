@@ -25,7 +25,7 @@ export default function EsqueceuSenhaParteII() {
                 
             })
             .catch(()=> {
-                navigate('/')
+                navigate('/login')
             })
         })()
     },[codigo, navigate])
@@ -54,7 +54,7 @@ export default function EsqueceuSenhaParteII() {
         })
         .then(()=> {
             setLoading(false)
-            navigate('/')
+            navigate('/login')
         })
         .catch((err)=> {
             setLoading(false)

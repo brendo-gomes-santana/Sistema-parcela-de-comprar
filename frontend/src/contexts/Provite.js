@@ -37,7 +37,7 @@ export default function Provite({children}) {
     }
     
     if(!authorization){
-        return <Navigate to='/'/>
+        return <Navigate to='/login'/>
     }
 
     return children

@@ -62,7 +62,7 @@ export default function EsqueceuSenhaParteI() {
                 <section className='box'>
                     <h1>{carregando === undefined ? 'Verificar seu email' : 'Carregando...'}</h1>
                     { carregando === undefined && ( 
-                    <Link to='/' style={{
+                    <Link to='/login' style={{
                         marginTop: '1rem',
                         color: 'var(--azul-400)'
                     }}>Volta para página de login</Link> ) }

@@ -4,7 +4,7 @@
     left: 2%;
     opacity: 0;
 }
-header{
+.headerPriv{
     position: fixed;
     width: 200px;
     height: 100%;
@@ -63,7 +63,7 @@ header{
 }
 
 @media screen and (max-width:720px){
-    header {
+    .headerPriv {
         transition: 0.5s;
         transform: translateX(-100vh);
     }

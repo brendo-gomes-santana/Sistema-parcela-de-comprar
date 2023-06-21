@@ -66,7 +66,7 @@ export default function Cadastro() {
             <Input type='date' style={{margin: '1rem 0'}}
             value={data} onChange={ v => setData(v.target.value) }/>
             
-            <Link to='/'>Você já possui conta? Faça login agora</Link>
+            <Link to='/login'>Você já possui conta? Faça login agora</Link>
             <Button type='submit' disabled={loading}>{loading ? 'Carregando...' : 'Cadastrar'}</Button>
         </form>
     </main>

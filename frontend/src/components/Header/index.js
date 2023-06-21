@@ -24,7 +24,7 @@ export default function Header() {
     }
   return (
     <>
-    <header ref={navRef}>
+    <header ref={navRef} className='headerPriv'>
         <Link to='/painel'>
             <img src={require('../../imgs/logo.png')} alt="Logo" className='logoHeader'/>
         </Link>

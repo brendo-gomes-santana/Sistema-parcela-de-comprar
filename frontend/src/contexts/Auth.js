@@ -35,7 +35,7 @@ export default function Auth({children}) {
     async function deslogar(){
         localStorage.clear()
         setUser(null)
-        navigate('/')
+        navigate('/login')
     }
 
   return (

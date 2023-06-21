@@ -3,8 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Auth from '../contexts/Auth'
 import Provite from '../contexts/Provite'
 
-import Login from '../pages/Home'
+import Home from '../pages/Home'
+
+import Login from '../pages/Login'
 import Cadastro from '../pages/Cadastrar'
+
 import EsqueceuSenhaParteI from '../pages/EsqueceuSenha/ParteI'
 import EsqueceuSenhaParteII from '../pages/EsqueceuSenha/ParteII'
 
@@ -17,8 +20,10 @@ export default function RouterApp() {
     <Router>
       <Auth>
         <Routes>
-            <Route path='/' element={ <Login/> } />
+            <Route path='/' element={ <Home/> }/>
+            <Route path='/login' element={ <Login/> } />
             <Route path='/cadastro' element={ <Cadastro/> } />
+            
             <Route path='/esqueceu_senha' element={ <EsqueceuSenhaParteI/> } />
             <Route path='/atualizando_senha/:codigo' element={ <EsqueceuSenhaParteII/> } />
 
