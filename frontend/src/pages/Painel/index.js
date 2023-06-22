@@ -7,6 +7,7 @@ import Model from '../../components/Model'
 import Api from '../../service/Api'
 
 import './style.scss'
+import './carregando.scss'
 
 import { MdPayments, MdDeleteOutline } from 'react-icons/md' // pagar | deletar
 
@@ -14,11 +15,14 @@ export default function Painel() {
   const [abrirModel, setAbrilModel] = useState(false)
   const [listaDePagamento, setListaDePagamento] = useState([])
 
+  const [loading, setLoading] = useState(true)
+
   useEffect(() => {
     (async () => {
       await Api.get('/lista/pagamento')
       .then((r)=> {
         setListaDePagamento(r.data)
+        setLoading(false)
       })
     })()
   }, [])
@@ -55,8 +59,14 @@ export default function Painel() {
     <main className='ContainerLogado ContainerPainel'>
         <h1 style={{color: '#fff'}}>Painel</h1>
         <hr />
-        {listaDePagamento.length === 0 && (
-          <p style={{color: 'var(--branco)', margin: '1rem 0'}} >Você não possui conta para pagar.</p>
+        {loading ? (
+          <>
+            <span class="loader">Carregando</span>
+          </>
+        ) : (
+          listaDePagamento.length === 0 && (
+            <p style={{color: 'var(--branco)', margin: '1rem 0'}} >Você não possui conta para pagar.</p>
+          )
         )}
         <section className='ContainerLista'>
           {listaDePagamento.map((p) => {
