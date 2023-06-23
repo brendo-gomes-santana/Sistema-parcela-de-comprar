@@ -40,7 +40,7 @@ export default function NovoPagamento() {
         setLoading(true)
         await Api.post('/create/pagamento', {
             titulo,
-            descricao,
+            descricao: `${descricao} \n\n Parcelas pagas`,
             dia_de_vencimento: diaDeVencimento,
             valor,
             parcelas: Number(parcelas)
